@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>HOME|ECOM</title>
+</head>
+<body>
+    <nav class="bg-white px-32 py-4 flex items-center justify-between border-b border-gray-500">
+        <h1 class="text-2xl font-bold text-black hover:text-gray-500 cursor-pointer">SHOP</h1>
+        <ul class="flex space-x-4">
+            <li>
+                <a href="#" class="text-black hover:text-gray-500">Home</a>
+            </li>
+            <li>
+                <a href="/products" class="text-black hover:text-gray-500">Products</a>
+            </li>
+            <li>
+                <a href="#" class="text-black hover:text-gray-500">Cart</a>
+            </li>
+            <li>
+                <a href="#" class="text-black hover:text-gray-500">My Account</a>
+            </li>
+            <li>
+                <a href="/admin" class="text-red-900 hover:text-gray-500" title="Admin">Admin</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="productSection" class="container mx-auto py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <% products.forEach(product => { %>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="<%= product.images[0] %>" alt="<%= product.name %>" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-2"><%= product.name %></h2>
+                    <p class="text-gray-600 mb-2"><%= product.description %></p>
+                    <p class="text-gray-700 font-semibold mb-2">$<%= product.price.toFixed(2) %></p>
+                    <a href="#" class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition duration-300">View Details</a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <!-- Include Axios for making AJAX requests -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/javascript/products.javascript.js"></script>
+</body>
+</html>
