@@ -1,15 +1,15 @@
 const loadProducts = async () => {
     try {
-        const response = await axios.get('/products'); // Assuming this is the route to fetch products
+        const response = await axios.get('/products');
         const products = response.data;
 
-        // Update product section with products (only first 6)
+       
         const productSection = document.getElementById('productSection');
-        productSection.innerHTML = ''; // Clear existing content
+        productSection.innerHTML = '';
         products.slice(0, 6).forEach(product => {
             const productCard = document.createElement('div');
             productCard.innerHTML = `
-                <!-- Product Card -->
+                
                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
                     <img src="${product.images[0]}" alt="${product.name}" class="w-full h-56 object-cover">
                     <div class="p-4">
@@ -27,8 +27,8 @@ const loadProducts = async () => {
     }
 };
 
-// Event listener for the button to load premium watches
+
 document.getElementById('loadPremiumWatches').addEventListener('click', loadProducts);
 
-// Load products when the page loads
+
 window.addEventListener('load', loadProducts);
